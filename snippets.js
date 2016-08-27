@@ -14,3 +14,15 @@ app.factory('TestFactory', function () {
     };
   }
 });
+
+
+app.controller('AppController', function (TestFactory, TestService) {
+  TestFactory.print();
+  TestService.print();
+});
+
+
+  function service(name, constructor) {
+    return factory(name, ['$injector', function($injector) {
+      return $injector.instantiate(constructor);
+    }]);
