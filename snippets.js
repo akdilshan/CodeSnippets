@@ -21,6 +21,7 @@ app.controller('AppController', function (TestFactory, TestService) {
   TestService.print();
 });
 
+ function factory(name, factoryFn) { return provider(name, { $get: factoryFn }); }
 
   function service(name, constructor) {
     return factory(name, ['$injector', function($injector) {
